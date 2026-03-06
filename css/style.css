@@ -323,8 +323,12 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* REDUCE NAV GAP FOR MORE ITEMS */
-.nav-menu { gap: 1.3rem !important; }
-.nav-menu > li > a { font-size: 0.88rem !important; }
+.nav-menu { gap: 0.8rem !important; }
+.nav-menu > li > a { font-size: 0.82rem !important; letter-spacing: -0.01em; }
+
+/* DROPDOWN — caché par défaut, affiché au survol */
+.nav-menu .dropdown { display: none !important; }
+.nav-menu li.has-dropdown:hover .dropdown { display: flex !important; }
 
 /* DROPDOWN NAVIGATION */
 .nav-menu li.has-dropdown { position: relative; }
