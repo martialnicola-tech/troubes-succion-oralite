@@ -508,5 +508,88 @@
     </footer>
     <script src="js/script.js"></script>
 <script src="chatbot.js"></script>
+<script>
+document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Réinitialiser les erreurs
+    document.querySelectorAll('.form-error').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-input, .form-select').forEach(el => el.classList.remove('error'));
+
+    let valid = true;
+
+    function showError(fieldId, show = true) {
+        const input = document.getElementById(fieldId);
+        const error = document.getElementById('error-' + fieldId);
+        if (show) {
+            if (input) input.classList.add('error');
+            if (error) error.classList.add('show');
+            valid = false;
+        }
+    }
+
+    // Validation champs requis
+    const requiredFields = ['specialite', 'prenom', 'nom', 'adresse', 'cp', 'lieu', 'email'];
+    requiredFields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el || !el.value.trim()) showError(id);
+    });
+
+    // Validation code postal (4 chiffres)
+    const cp = document.getElementById('cp').value.trim();
+    if (cp && !/^[0-9]{4}$/.test(cp)) showError('cp');
+
+    // Validation email
+    const email = document.getElementById('email').value.trim();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) showError('email');
+
+    // Validation URL site web
+    const siteWeb = document.getElementById('siteWeb').value.trim();
+    if (siteWeb && !/^https?:\/\/.+\..+/.test(siteWeb)) showError('siteWeb');
+
+    // Validation checkboxes
+    if (!document.getElementById('acceptConditions').checked) showError('acceptConditions');
+    if (!document.getElementById('acceptPaiement').checked) showError('acceptPaiement');
+
+    if (!valid) return;
+
+    // Bloquer le bouton pendant la requête
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Chargement…';
+
+    try {
+        const response = await fetch('api/create-registration.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                specialite:  document.getElementById('specialite').value.trim(),
+                prenom:      document.getElementById('prenom').value.trim(),
+                nom:         document.getElementById('nom').value.trim(),
+                adresse:     document.getElementById('adresse').value.trim(),
+                cp:          cp,
+                lieu:        document.getElementById('lieu').value.trim(),
+                email:       email,
+                telephone:   document.getElementById('telephone').value.trim(),
+                siteWeb:     siteWeb,
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.checkoutUrl) {
+            window.location.href = data.checkoutUrl;
+        } else {
+            alert(data.message || 'Une erreur est survenue. Veuillez réessayer.');
+            btn.disabled = false;
+            btn.textContent = 'Continuer vers le paiement';
+        }
+    } catch (err) {
+        alert('Erreur de connexion. Veuillez vérifier votre connexion et réessayer.');
+        btn.disabled = false;
+        btn.textContent = 'Continuer vers le paiement';
+    }
+});
+</script>
 </body>
 </html>
