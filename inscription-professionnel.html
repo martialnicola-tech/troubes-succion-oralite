@@ -451,7 +451,7 @@
                         <!-- Site internet -->
                         <div class="form-group">
                             <label for="siteWeb" class="form-label">Site internet</label>
-                            <input type="url" id="siteWeb" name="siteWeb" class="form-input" placeholder="https://www.votre-site.ch">
+                            <input type="text" id="siteWeb" name="siteWeb" class="form-input" placeholder="https://www.votre-site.ch" onblur="if(this.value && !this.value.match(/^https?:\/\//)) this.value='https://'+this.value;">
                             <small style="color: var(--color-text-light); font-size: 0.875rem;">
                                 ⚠️ Rappel : Vous devez ajouter un lien vers www.troubles-succion-oralite.ch sur votre site pour que votre lien soit activé.
                             </small>
