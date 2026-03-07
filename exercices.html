@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .video-short-wrapper {
-            max-width: 260px;
+            max-width: 160px;
             margin: 0.75rem auto 0;
         }
         .video-short-wrapper iframe {
@@ -30,17 +30,15 @@
             grid-template-columns: 1fr auto;
             gap: 2rem;
             align-items: start;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        .exercise-block:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+            margin-bottom: 0.5rem;
+            padding: 1.5rem;
+            border-radius: 10px;
         }
         .exercise-block.no-video {
             grid-template-columns: 1fr;
+        }
+        .exercise-block.block-t {
+            background: rgba(46, 196, 182, 0.1);
         }
         .exercise-text h3 {
             color: var(--turquoise, #2ec4b6);
@@ -59,7 +57,7 @@
             gap: 1rem;
         }
         .two-videos .video-short-wrapper {
-            max-width: 190px;
+            max-width: 120px;
             flex: 1;
         }
         @media (max-width: 700px) {
@@ -154,12 +152,12 @@
     </section>
 
     <!-- ====== SECTION 1 : TROUBLES DE L'ORALITÉ ====== -->
-    <section class="section section-turquoise">
+    <section class="section">
         <div class="container">
             <h2 class="section-title text-center" style="margin-bottom: 2.5rem;">Exercices recommandés en cas de troubles de l'oralité et/ou de tensions de la sphère buccale</h2>
 
             <!-- Exercice 1 : Masser le visage -->
-            <div class="exercise-block">
+            <div class="exercise-block block-t">
                 <div class="exercise-text">
                     <h3>1. Masser le visage</h3>
                     <p>Massez le visage de votre bébé, surtout <strong>autour des lèvres</strong>, pour détendre les muscles et relâcher les tensions. Vous pouvez aussi utiliser une <strong>comptine sur le visage</strong> avec des tapotements rythmés pour diminuer progressivement le réflexe nauséeux.</p>
@@ -194,7 +192,7 @@
             </div>
 
             <!-- Exercice 3 : Tummy Time -->
-            <div class="exercise-block">
+            <div class="exercise-block block-t">
                 <div class="exercise-text">
                     <h3>3. Le Tummy Time</h3>
                     <p>Mettez votre enfant <strong>à plat ventre</strong> et faites en sorte qu'il vous suive — ou suive un objet — du regard à gauche et à droite.</p>
@@ -235,7 +233,7 @@
             </div>
 
             <!-- Exercice 5 : Lolette -->
-            <div class="exercise-block no-video">
+            <div class="exercise-block no-video block-t">
                 <div class="exercise-text">
                     <h3>5. Enlever la lolette pendant le sommeil</h3>
                     <p>Enlevez la sucette de votre enfant <strong>une fois qu'il est endormi</strong>. Cette habitude simple peut avoir plusieurs bénéfices :</p>
@@ -256,7 +254,7 @@
             <p style="text-align: center; color: #666; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">Le but est simple : habituer le bébé aux manipulations buccales et préparer les tissus avant l'intervention. Plusieurs exercices peuvent être effectués :</p>
 
             <!-- Avant 1 : Masser le visage -->
-            <div class="exercise-block no-video">
+            <div class="exercise-block no-video block-t">
                 <div class="exercise-text">
                     <h3>Masser le visage et les gencives</h3>
                     <p>Placez votre bébé en face de vous et massez-lui le visage : touchez le nez, la lèvre, le menton pour lui faire ouvrir la bouche. Mettez ensuite un doigt dans sa bouche pour <strong>masser les gencives</strong> sous forme de balayage, en chatouillant doucement la langue.</p>
@@ -280,7 +278,7 @@
             </div>
 
             <!-- Avant 3 : Appui sous le menton -->
-            <div class="exercise-block">
+            <div class="exercise-block block-t">
                 <div class="exercise-text">
                     <h3>L'appui sous le menton</h3>
                     <p>Placez votre pouce ou index <strong>sous le menton</strong> du bébé et appuyez légèrement (ça ne doit pas lui faire mal). Massez ce plancher buccal pendant environ <strong>7 secondes</strong>.</p>
@@ -299,13 +297,13 @@
     </section>
 
     <!-- ====== SECTION 3 : APRÈS LA FRÉNECTOMIE ====== -->
-    <section class="section section-turquoise">
+    <section class="section">
         <div class="container">
             <h2 class="section-title text-center" style="margin-bottom: 0.5rem;">Les exercices APRÈS une frénectomie linguale</h2>
-            <p style="text-align: center; color: #444; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">Ces exercices sont essentiels pour éviter que le frein ne se reforme. Ils doivent être réalisés selon les instructions précises de votre praticien.</p>
+            <p style="text-align: center; color: #666; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">Ces exercices sont essentiels pour éviter que le frein ne se reforme. Ils doivent être réalisés selon les instructions précises de votre praticien.</p>
 
             <!-- Après 1 : Appui sous le menton -->
-            <div class="exercise-block">
+            <div class="exercise-block block-t">
                 <div class="exercise-text">
                     <h3>⭐ L'appui sous le menton <span style="font-size:0.85rem; font-weight:400; color:#555;">(si on ne doit en garder qu'un, c'est celui-ci !)</span></h3>
                     <p>L'exercice est le même qu'avant la frénectomie — mais il est <strong>crucial de le poursuivre jusqu'à 6 semaines après</strong> l'intervention.</p>
@@ -329,7 +327,7 @@
             </div>
 
             <!-- Après 3 : Masser sous la langue -->
-            <div class="exercise-block">
+            <div class="exercise-block block-t">
                 <div class="exercise-text">
                     <h3>Masser sous la langue</h3>
                     <p>Avec votre doigt, <strong>sans toucher la cicatrice</strong>, passez de part et d'autre de la cicatrice du frein pour masser sous la langue.</p>
