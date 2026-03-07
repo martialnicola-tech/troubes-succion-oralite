@@ -52,15 +52,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile dropdown toggle — new .has-dropdown pattern
+    // Dropdown toggle — mouseenter/mouseleave (desktop) + click (mobile)
     const hasDropdowns = document.querySelectorAll('.nav-menu li.has-dropdown');
     hasDropdowns.forEach(item => {
         const link = item.querySelector(':scope > a');
+
+        // Desktop : afficher au survol avec délai de fermeture
+        let closeTimer;
+        item.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                clearTimeout(closeTimer);
+                hasDropdowns.forEach(other => {
+                    if (other !== item) other.classList.remove('open');
+                });
+                item.classList.add('open');
+            }
+        });
+        item.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                closeTimer = setTimeout(() => {
+                    item.classList.remove('open');
+                }, 150);
+            }
+        });
+
+        // Mobile : toggle au clic
         if (link) {
             link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    // Close other open dropdowns
                     hasDropdowns.forEach(other => {
                         if (other !== item) other.classList.remove('open');
                     });
