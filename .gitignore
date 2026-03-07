@@ -3,6 +3,10 @@ Thumbs.db
 *.log
 .claude/
 
+# Dépendances Composer (générées par Hostinger au déploiement)
+api/vendor/
+composer.lock
+
 # Fichiers de configuration sensibles - NE PAS committer sur GitHub !
 api/config.php
 config.php
