@@ -2,3 +2,7 @@
 Thumbs.db
 *.log
 .claude/
+
+# Fichiers de configuration sensibles - NE PAS committer sur GitHub !
+api/config.php
+config.php
